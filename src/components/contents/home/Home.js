@@ -45,9 +45,6 @@ function PlaylistCard() {
       {playlists.map((playlist) => (
         <div className="card" style={{ width: "15rem", margin: "10px" }} key={playlist.id}>
           <div style={{ backgroundColor: playlist.color, height: "150px" }}>
-            <img
-              alt={playlist.title}
-            />
           </div>
           <div className="card-body">
             <h5 className="card-title">{playlist.title}</h5>
