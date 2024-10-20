@@ -1,20 +1,16 @@
 import "./Home.css";
 import React, { useEffect, useState } from 'react';
-
 import { Link } from "react-router-dom";
 
 function Home() {
   return (
-
     <div className="home-container">
       <div className="home-title">
         <h1>My Playlists</h1>
-        <Link to="/create">create playlist</Link>
+        <Link to="/create">Create Playlist</Link>
       </div>
       <div className="contents">
-        <div className="item">
-          <PlaylistCard />
-        </div>
+        <PlaylistCard />
       </div>
     </div>
   );
@@ -41,15 +37,20 @@ function PlaylistCard() {
   }, []);
 
   return (
-    <div className="d-flex flex-wrap justify-content-center">
+    <div className="card-container d-flex flex-wrap justify-content-center">
       {playlists.map((playlist) => (
         <div className="card" style={{ width: "15rem", margin: "10px" }} key={playlist.id}>
           <div style={{ backgroundColor: playlist.color, height: "150px" }}>
+            <img
+              src="https://media.istockphoto.com/id/1470710940/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0%EC%83%89-%EB%B0%94%ED%83%95%EC%97%90-%EC%95%84%EB%A6%84-%EB%8B%A4%EC%9A%B4-%EC%96%BC%EB%A3%A9-%EA%B3%A0%EC%96%91%EC%9D%B4.jpg?s=2048x2048&w=is&k=20&c=k3JOZES3LF1zP5K-krGgJ0hw4fduWhhl4DV6-4ddjCg="
+              alt={playlist.title}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
           </div>
           <div className="card-body">
             <h5 className="card-title">{playlist.title}</h5>
             <p className="card-text">{playlist.description}</p>
-            <a href={playlist.url} className="btn btn-primary">Playlist url</a>
+            <a href={playlist.url} className="btn btn-primary">View Playlist</a>
           </div>
         </div>
       ))}
